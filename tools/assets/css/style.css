@@ -1,0 +1,188 @@
+html,
+body,
+.grid {
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+}
+
+body {
+    background: #262a2f;
+    color: #fff;
+    font: 16px/20px Helvetica, Arial, sans-serif;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+input,
+label,
+button {
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+}
+
+hr {
+    width: 100%;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.disabled {
+    color: #999;
+    cursor: default;
+}
+
+.grid,
+.aside,
+.form__item,
+h2 {
+    box-sizing: border-box;
+}
+
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas: "header header"
+                         "aside main"
+                         "footer footer";
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 1fr 3fr;
+}
+
+.header {
+    grid-area: header;
+}
+
+.aside {
+    grid-area: aside;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.form {
+    display: flex;
+}
+
+.aside,
+.form__item {
+    display: flex;
+    flex-direction: column;
+}
+
+.aside hr {
+    margin-top: 1.2em;
+    margin-bottom: 1em;
+}
+
+.tool-selector .aside__item,
+.form__row {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+.tool-options__item {
+    margin-bottom: 1em;
+}
+
+.form__item-input,
+.form__item-output {
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.form__item-input {
+    padding-left: 30px;
+    padding-right: 15px;
+}
+
+.form__item-output {
+    padding-left: 15px;
+    padding-right: 30px;
+}
+
+h2 {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 0;
+}
+
+.form__hint {
+    font-style: italic;
+    color: #aaa;
+    margin-top: 1em;
+    margin-bottom: .2em;
+}
+
+.form__notification {
+    min-height: 20px;
+    margin-top: 1em;
+    color: #999;
+    font-style: italic;
+}
+
+.form__button {
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form__button:disabled {
+    cursor: default;
+}
+
+.form__description {
+    font-size: 14px;
+}
+
+.tool-common-description {
+    font-size: 13px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 40px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+
+.footer hr {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.copy {
+    text-align: center;
+}

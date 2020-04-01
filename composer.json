@@ -1,0 +1,14 @@
+{
+    "name": "selby/tools",
+    "description": "",
+    "authors": [
+        {
+            "name": "Alexander Smyslov",
+            "email": "smyslov@selby.su"
+        }
+    ],
+    "require": {},
+    "autoload" : {
+        "psr-4" : {"tools\\" : "tools/"}
+    }
+}
