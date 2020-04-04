@@ -1,13 +1,18 @@
 {
-    "name": "selby/tools",
-    "description": "",
+    "name": "selby/webmaster-tools",
+    "description": "Webmaster toolkits to simplify routine tasks",
+	"type": "project",
+	"license": "MIT",
     "authors": [
         {
             "name": "Alexander Smyslov",
             "email": "smyslov@selby.su"
         }
     ],
-    "require": {},
+    "require": {
+        "phpmailer/phpmailer": "^6.0",
+		"paquettg/php-html-parser": "^2.2"
+	},
     "autoload" : {
         "psr-4" : {"tools\\" : "tools/"}
     }

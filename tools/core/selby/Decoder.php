@@ -1,6 +1,6 @@
 <?php
 
-namespace tools\core\tools;
+namespace tools\core\selby;
 
 class Decoder extends BaseTool
 {

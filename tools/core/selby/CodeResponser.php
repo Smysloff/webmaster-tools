@@ -1,8 +1,8 @@
 <?php
 
-namespace tools\core\tools;
+namespace tools\core\selby;
 
-class CodeResponser extends BaseTool
+class CodeResponser extends \tools\core\selby\BaseTool
 {
     public function work()
     {

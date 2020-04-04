@@ -11,9 +11,6 @@ const toolEndpointsFolder        = '/tools/tool/';
       dashboardHeader            = document.body.querySelector('main section h2');
       formDescriptions           = document.body.querySelectorAll('.form__description');
 
-console.log(formDescriptions);
-
-
 // инициализация при загрузки страницы
 window.addEventListener('load', () => {
 

@@ -2,7 +2,7 @@
 
 namespace tools\core\controllers;
 
-use tools\core\tools;
+use tools\core\selby;
 
 class Tool extends Controller
 {
@@ -17,36 +17,36 @@ class Tool extends Controller
 
     public function response_code()
     {
-        $codeResponser = new tools\CodeResponser($this->userData);
+        $codeResponser = new selby\CodeResponser($this->userData);
         $data = $codeResponser->work();
         print $data;
     }
 
     public function tag_parser()
     {
-        $tagParser = new tools\TagParser($this->userData);
+        $tagParser = new selby\TagParser($this->userData);
         $data = $tagParser->work();
         print $data;
     }
 
     public function transliter()
     {
-        $transliter = new tools\Transliter($this->userData);
+        $transliter = new selby\Transliter($this->userData);
         $data = $transliter->work();
         print $data;
     }
 
     public function decoder()
     {
-        $decoder = new tools\Decoder($this->userData);
+        $decoder = new selby\Decoder($this->userData);
         $data = $decoder->work();
         print $data;
     }
 
     public function sitemap()
     {
-        $sitemapper = new tools\Sitemapper($this->userData);
-        $data = $sitemapper->work();
+        $mapMaker = selby\SitemapMaker::newMap($this->userData);
+        $data = $mapMaker->createMap();
         print $data;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace tools\core\tools;
+namespace tools\core\selby;
 
 abstract class BaseTool
 {
@@ -15,6 +15,4 @@ abstract class BaseTool
             $this->options[$key] = $value;
         });
     }
-
-    abstract public function work();
 }

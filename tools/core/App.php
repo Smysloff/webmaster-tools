@@ -7,21 +7,16 @@ namespace tools\core;
  */
 final class App
 {
-    const TOOL_PATH               = '/tools';
-    const CONTROLLERS_NAMESPACE   = '\tools\core\controllers\\'; 
-    const DEFAULT_CONTROLLER      = self::CONTROLLERS_NAMESPACE.'Main';
-    const DEFAULT_ACTION          = 'index';
-
     private static $url;
-    private static $controller = self::CONTROLLERS_NAMESPACE.'Errors';
-    private static $action     = self::DEFAULT_ACTION;
+    private static $controller = CONTROLLERS_NAMESPACE.'Errors';
+    private static $action     = DEFAULT_ACTION;
 
     /**
-     * Запуск приложения
+     * Run application
      *
      * @return void
      */
-    public static function Run() : void
+    public static function Run(): void
     {
         self::$url = self::GetURL($_SERVER['REQUEST_URI']);
         self::Dispatch();
@@ -37,7 +32,7 @@ final class App
      *
      * @return void
      */
-    private static function Dispatch() : void
+    private static function Dispatch(): void
     {
         // Валидация URL: отсеиваем сразу URL с запрещенными символами
         if (self::ValidateURL(self::$url)) {
@@ -46,9 +41,9 @@ final class App
             return;
         }
 
-        // Маршрут для главной страницы
+        // Route for home page
         if (self::$url == '/') {
-            self::$controller = self::DEFAULT_CONTROLLER;
+            self::$controller = DEFAULT_CONTROLLER;
             return;
         }
 
@@ -56,14 +51,14 @@ final class App
         $urlParts   = explode('/', trim(self::$url, '/'));
         $countParts = count($urlParts);
 
-        // Маршрут для одного сегмента URL
+        // Routes for single part of URL
         if ($countParts == 1) {
 
-            // - методы controller'a по умолчанию
-            $controller = self::DEFAULT_CONTROLLER;
+            // - default controller's methods
+            $controller = DEFAULT_CONTROLLER;
             $action     = $urlParts[0];
             
-            if (is_callable([$controller, $action]) && $action != self::DEFAULT_ACTION) {
+            if (is_callable([$controller, $action]) && $action != DEFAULT_ACTION) {
             
                 self::$controller = $controller;
                 self::$action     = $action;
@@ -71,9 +66,9 @@ final class App
                 return;
             }
 
-            // - методы по умолчанию для остальных controller'ов
-            $controller = self::CONTROLLERS_NAMESPACE.ucfirst($urlParts[0]);
-            $action     = self::DEFAULT_ACTION;
+            // - default methods for other controllers
+            $controller = CONTROLLERS_NAMESPACE.ucfirst($urlParts[0]);
+            $action     = DEFAULT_ACTION;
 
             if (is_callable([$controller, $action])) {
             
@@ -87,12 +82,12 @@ final class App
         // Маршрут для двух сегментов URL
         if ($countParts == 2) {
 
-            $controller = self::CONTROLLERS_NAMESPACE.ucfirst($urlParts[0]);
+            $controller = CONTROLLERS_NAMESPACE.ucfirst($urlParts[0]);
             $action     = $urlParts[1];
 
             if (is_callable([$controller, $action]) &&
-                $controller != self::DEFAULT_CONTROLLER &&
-                $action     != self::DEFAULT_ACTION) {
+                $controller != DEFAULT_CONTROLLER &&
+                $action     != DEFAULT_ACTION) {
 
                 self::$controller = $controller;
                 self::$action     = $action;
@@ -113,7 +108,7 @@ final class App
      */
     private static function GetURL(string $url): string
     {
-        $pattern = '#^'.self::TOOL_PATH.'#';
+        $pattern = '#^'.TOOLS_URL_PATH.'#';
 
         $url = parse_url($url, PHP_URL_PATH);
         $url = preg_replace($pattern, '', $url);

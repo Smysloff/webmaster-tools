@@ -7,4 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'tools\\' => array($baseDir . '/tools'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
+    'PHPHtmlParser\\' => array($vendorDir . '/paquettg/php-html-parser/src/PHPHtmlParser'),
 );
