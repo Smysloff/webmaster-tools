@@ -2,11 +2,14 @@
 
 namespace tools\core\selby;
 
+use PHPHtmlParser\Dom;
+
 class TagParser extends BaseTool
 {
     public function work()
     {
         $result = '';
+        $dom = new Dom;
 
         for ($i = 0; $i < min(count($this->input), TOOLS_ROWS_LIMIT); $i++) {
 
@@ -18,33 +21,29 @@ class TagParser extends BaseTool
 
             if (filter_var($url, FILTER_VALIDATE_URL)) {
 
-                $page = @file_get_contents(trim($this->input[$i]));
+                $dom->load($url);
 
                 switch ($this->options['tag']) {
                     case 'title':
-                        $pattern = '#<title>(.+?)</title>#su';
-                        preg_match($pattern, $page, $match);
+                        $match = strip_tags($dom->find('title')[0]->innerHtml);
                         break;
 
                     case 'h1':
-                        $pattern = '#<h1[^>]*?>(.+?)</h1>#su';
-                        preg_match($pattern, $page, $match);
+                        $match = strip_tags($dom->find('h1')[0]->innerHtml);
                         break;
 
                     case 'description':
-                        $pattern = '#<meta(?=[^>]* name *= *"?description"?) [^>]*?(?<= )content *= *"([^"]*)"[^>]*>#su';
-                        preg_match($pattern, $page, $match);
+                        $match = strip_tags($dom->find('description')[0]->innerHtml);
                         break;
 
                     case 'keywords':
-                        $pattern = '#<meta(?=[^>]* name *= *"?keywords"?) [^>]*?(?<= )content *= *"([^"]*)"[^>]*>#su';
-                        preg_match($pattern, $page, $match);
+                        $match = strip_tags($dom->find('keywords')[0]->innerHtml);
                         break;
                     
                     default:
-                        $match = [];
+                        $match = 'error';
                 }
-                $result .= $match[1] ?: 'error';
+                $result .= $match;
 
             } else {
                 $result .= 'error';
@@ -53,6 +52,6 @@ class TagParser extends BaseTool
             $result .= PHP_EOL;
         }
 
-        return trim($result);
+        return $result;
     }
 }
