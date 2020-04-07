@@ -15,4 +15,11 @@ abstract class BaseTool
             $this->options[$key] = $value;
         });
     }
+
+    public function dump()
+    {
+        echo '<pre>';
+        print_r($this->input);
+        echo '</pre>';
+    }
 }

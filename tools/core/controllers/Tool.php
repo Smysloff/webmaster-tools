@@ -49,4 +49,15 @@ class Tool extends Controller
         $data = $mapMaker->createMap();
         print $data;
     }
+
+    public function text_analyzer()
+    {
+        $textAnalyzer = new selby\TextAnalyzer($this->userData);
+
+        $data = 'Кол-во символов (с пробелами): ' . $textAnalyzer->strlen() . PHP_EOL;
+        $data .= 'Кол-во символов (без пробелов): ' . $textAnalyzer->strlenNoSpaces() . PHP_EOL;
+        $data .= 'Кол-во слов: ' . $textAnalyzer->wordCount() . PHP_EOL;
+
+        print $data;
+    }
 }

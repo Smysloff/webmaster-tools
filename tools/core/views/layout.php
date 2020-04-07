@@ -37,7 +37,7 @@
                     <div class="aside__item">
                         <label>
                             <input type="radio" name="tool" value="tag-parser" class="tool-item">
-                            <span>Парсер тегов</span>
+                            <span>Парсинг тегов</span>
                         </label>
                     </div>
                     <div class="aside__item">
@@ -56,6 +56,18 @@
                         <label>
                             <input type="radio" name="tool" value="sitemap" class="tool-item">
                             <span>Карта сайта</span>
+                        <label>
+                    </div>
+                    <div class="aside__item">
+                        <label>
+                            <input type="radio" name="tool" value="text-analyzer" class="tool-item">
+                            <span>Текстовый анализ</span>
+                        <label>
+                    </div>
+                    <div class="aside__item">
+                        <label class="disabled">
+                            <input type="radio" name="tool" value="text-modifier" class="tool-item" disabled>
+                            <span>Модификация текста</span>
                         <label>
                     </div>
                 </form>
@@ -214,6 +226,7 @@
                         </form>
                     </div>
 
+
                 </div> <!-- aside__list -->
 
             </div> <!-- /container -->
@@ -257,6 +270,10 @@
                             <p>Инструмент позволяет создавать карту сайта на основе списка URL. Можно создавать как XML-карту сайта, так и HTML-список для HTML-карты сайта. Максимальное количество переданных адресов в одну задачу - 999, остальные будут проигнорированы.</p>
                             <p>URL необходимо передавать списком, где каждый адрес расположен на новой строке. Для HTML-карты сразу после адреса через точку с запятой можно передать заголовок страницы (например: <u>http://examle.com;Custom title</u>). В противном случае заголовки будут парситься с самой страницы. По умолчанию - это &lt;h1&gt;, если он не будет найден, то - &lt;title&gt;.</p>
                         </div>
+
+                        <div class="form__description text-analyzer-input-description" hidden>
+                            <p>Описание инструмента будет добавленно позже...</p>
+                        </div>
                     </div>
 
                     <div class="form__item form__item-output">
@@ -288,6 +305,10 @@
                             <p>Сформированную XML-карту сайта нужно скопировать и вставить в файл с расширением <u>.xml</u> (например: <u>sitemap.xml</u>). Готовый HTML-список необходимо скопировать, обернуть в тег &lt;ul&gt; или &lt;ol&gt; и вставить в HTML-шаблон страницы.</p>
                             <p>Чтобы забрать выходные данные, вы можете нажать на кнопку "копировать", и тогда весь список будет скопирован в ваш буфер обмена. Либо вы можете сами скопировать нужные вам строки, подобно тому как делаете это в текстовых редакторах.</p>
                         </div>
+
+                        <div class="form__description text-analyzer-output-description" hidden>
+                            <p>Чтобы забрать выходные данные, вы можете нажать на кнопку "копировать", и тогда весь список будет скопирован в ваш буфер обмена. Либо вы можете сами скопировать нужные вам строки, подобно тому как делаете это в текстовых редакторах.</p>
+                        </div>
                         
                     </div>
 
@@ -296,7 +317,7 @@
 
             <div class="section tool-common-description text-center">
                 <p>Этот набор инструментов находится в стадии разработки, поэтому возможны баги, неожиданные результаты и стремительный коллапс видимой Вселенной.<br>Используйте его на свой страх и риск ;)</p>
-                <p class="bold">Текущая версия: 0.200404</p>
+                <p class="bold">Текущая версия: 0.200407</p>
             </div>
 
         </main>
