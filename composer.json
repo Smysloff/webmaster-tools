@@ -10,10 +10,9 @@
         }
     ],
     "require": {
-        "phpmailer/phpmailer": "^6.0",
-		"paquettg/php-html-parser": "^2.2"
+        "paquettg/php-html-parser": "^2.2"
 	},
     "autoload" : {
-        "psr-4" : {"tools\\" : "tools/"}
+        "psr-4" : {"core\\" : "core/"}
     }
 }
